@@ -1083,40 +1083,36 @@ textarea.input-field {
 }
 .whatsapp-ico {
 	fill: white;
-	width: 50px;
-	height: 50px;
+	width: 30px;
+	height: 30px;
+	position: absolute;
 	padding: 3px;
 	background-color: #4dc247;
 	border-radius: 50%;
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-	/* box-shadow: 2px 2px 11px rgba(0,0,0,0.7); */
 	position: fixed;
-	bottom: 20px;
-	right: 20px;
+	bottom: 90px;
+	right: 15px;
 	z-index: 10;
 	animation: pulse 1s infinite;
+	transform: translate(-50%, -50%);
 }
 
-.whatsapp-ico:hover {
-	box-shadow: 2px 2px 11px rgba(0, 0, 0, 0.7);
+@media screen and (max-width: 767px) {
+	.whatsapp-ico {
+		width: 40px;
+		height: 40px;
+		position: static;
+		transform: none;
+		/* margin-bottom: 0px; */
+		margin-left: 25px;
+	}
 }
-/* .myButton {
-	background-color: #44c767;
-	border-radius: 31px;
-	border: 1px solid #18ab29;
-	display: inline-block;
-	cursor: pointer;
-	color: var(--text-smoky-black);
-	font-family: var(--fontFamily-roboto);
-	font-size: 17px;
-	padding: 16px 31px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #55e43f;
-} */
+
 .mail-outline {
 	width: 50px;
 	height: 50px;
-	color: #ff0;
+	color: #00d4ff;
 }
 
 /*-----------------------------------*\
@@ -1131,7 +1127,7 @@ textarea.input-field {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 20px;
+	gap: 10px;
 }
 
 .copyright {
@@ -1167,9 +1163,9 @@ textarea.input-field {
 .footer-socials {
 	display: flex;
 	width: 100%;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
-	gap: 50px;
+	gap: 60px;
 }
 
 /* .footer-socials:hover a{
@@ -1286,6 +1282,13 @@ textarea.input-field {
 		max-width: max-content;
 		margin-inline: auto;
 	}
+}
+.footer-socials {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 10px;
 }
 
 /**
@@ -1450,9 +1453,9 @@ textarea.input-field {
 	}
 }
 
-.footer-socials {
-	gap: 85px;
-}
+/* .footer-socials {
+	gap: 15px;
+} */
 
 /**
  * responsive for large than 992px screen
