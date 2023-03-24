@@ -47,23 +47,34 @@
 
 		<link rel="stylesheet" href="./assets/css/styles.css" />
 
-		<script
+		<!-- cloudflare turnstile  -->
+
+		<!-- <script
 			src="https://challenges.cloudflare.com/turnstile/v0/api.js"
 			async
-			defer></script>
+			defer></script> -->
+			<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_turnstileCb" async defer></script>
+			<!-- <script>
+    window.turnstileCallbackFunction = function () {
+        const turnstileOptions = {
+            sitekey: '0x4AAAAAAADZNE71J1Qqr2LZ',
+            callback: function(token) {
+                console.log(`Challenge Success: ${token}`);
+            }
+        };
+        turnstile.render('#container', turnstileOptions);
+    };
+</script> -->
 
 		<!-- preload images  -->
 
 		<link rel="preload" as="image" href="./assets/images/hero-banner-1.png" />
 		<link rel="preload" as="image" href="./assets/images/hero-shape-1.png" />
 		<link rel="preload" as="image" href="./assets/images/hero-shape-2.png" />
-
-		
-
-	
 	</head>
 
 	<body>
+	
 		<div id="app">
 			<body>
 				<!-- PRELOADER -->
@@ -387,7 +398,7 @@
 								class="card-img" />
 
 							<div class="card-content">
-								<h2 class="card-title">AI Asset Imaging</h2>
+								<h2 class="card-title">AI Imaging</h2>
 								<p class="card-text">
 									Unleash the full potential of your visuals with
 									state-of-the-art tech, helping your brand make a lasting
@@ -783,9 +794,7 @@
 						</li>
 					</ul>
 				</section>
-				<!-- <div class="slider-arrow slider-next">
-               <ion-icon name="chevron-forward-outline"></ion-icon>
-          </div> -->
+
 
 				<!-- CONTACT -->
 
@@ -828,10 +837,11 @@
 									placeholder="Enter message"
 									required
 									class="input-field"></textarea>
-								<div
+									<div id="myWidget"></div>
+								<!-- <div
 									class="cf-turnstile"
 									data-sitekey="0x4AAAAAAADZNE71J1Qqr2LZ"
-									data-callback="javascriptCallback"></div>
+									data-callback="javascriptCallback"></div> -->
 								<button type="submit" class="btn btn:hover">
 									<span class="span">Let's Connect</span>
 
@@ -964,8 +974,20 @@
 
 				<script src="./assets/js/script.js"></script>
 
-				<!-- cloudfare site key link -->
-		   <script src="./assets/js/server.js"></script>
+				<!-- cloudfare  link -->
+				<script src="./assets/js/server.js"></script>
+
+				<script>
+// This function is called when the Turnstile script is loaded and ready to be used.
+// The function name matches the "onload=..." parameter.
+function _turnstileCb() {
+    console.debug('_turnstileCb called');
+
+    turnstile.render('#myWidget', {
+      sitekey: '0x4AAAAAAADZNE71J1Qqr2LZ',
+    });
+}
+</script>
 
 				<!-- ion-icon link -->
 
@@ -975,11 +997,9 @@
 				<script
 					nomodule
 					src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-					<!-- cloudflare turnstile -->
-
-		
-						
+				<!-- cloudflare turnstile -->
 			</body>
 		</div>
 	</body>
+	
 </html>
