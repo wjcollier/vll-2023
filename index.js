@@ -1,4 +1,4 @@
-import explicitRenderHtml from '/index.html'
+import explicitRenderHtml  from './index.html'
 require('dotenv').config()
 
 
