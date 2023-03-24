@@ -49,22 +49,10 @@
 
 		<!-- cloudflare turnstile  -->
 
-		<!-- <script
-			src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+		<script
+			src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_turnstileCb"
 			async
-			defer></script> -->
-			<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_turnstileCb" async defer></script>
-			<!-- <script>
-    window.turnstileCallbackFunction = function () {
-        const turnstileOptions = {
-            sitekey: '0x4AAAAAAADZNE71J1Qqr2LZ',
-            callback: function(token) {
-                console.log(`Challenge Success: ${token}`);
-            }
-        };
-        turnstile.render('#container', turnstileOptions);
-    };
-</script> -->
+			defer></script>
 
 		<!-- preload images  -->
 
@@ -74,7 +62,6 @@
 	</head>
 
 	<body>
-	
 		<div id="app">
 			<body>
 				<!-- PRELOADER -->
@@ -795,7 +782,6 @@
 					</ul>
 				</section>
 
-
 				<!-- CONTACT -->
 
 				<section class="section contact" aria-label="contact me" id="contact">
@@ -837,7 +823,7 @@
 									placeholder="Enter message"
 									required
 									class="input-field"></textarea>
-									<div id="myWidget"></div>
+								<div id="myWidget"></div>
 								<button type="submit" class="btn btn:hover">
 									<span class="span">Let's Connect</span>
 
@@ -974,16 +960,16 @@
 				<script src="./assets/js/server.js"></script>
 
 				<script>
-// This function is called when the Turnstile script is loaded and ready to be used.
-// The function name matches the "onload=..." parameter.
-function _turnstileCb() {
-    console.debug('_turnstileCb called');
+					// This function is called when the Turnstile script is loaded and ready to be used.
+					// The function name matches the "onload=..." parameter.
+					function _turnstileCb() {
+						console.debug('_turnstileCb called')
 
-    turnstile.render('#myWidget', {
-      sitekey: '0x4AAAAAAADdMXwxrz3z09SD',
-    });
-}
-</script>
+						turnstile.render('#myWidget', {
+							sitekey: '0x4AAAAAAADdMXwxrz3z09SD',
+						})
+					}
+				</script>
 
 				<!-- ion-icon link -->
 
@@ -993,9 +979,7 @@ function _turnstileCb() {
 				<script
 					nomodule
 					src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-				
 			</body>
 		</div>
 	</body>
-	
 </html>

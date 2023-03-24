@@ -2,24 +2,27 @@
  * VOYAGE FONT
  */
 
- @font-face {
-    font-family: 'Voyage';
-  src: local('Voyage Regular'), local('Voyage-Regular'),
-      url('./Voyage/Voyage-Regular.otf') format('otf');
-      src: local('Voyage Regular'), local('Voyage-Regular'),
-      url('./Voyage/Voyage-Regular.ttf') format('ttf');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
- }
+@font-face {
+	font-family: 'Voyage';
+	src: local('Voyage Regular'), local('Voyage-Regular'),
+		url('./Voyage/Voyage-Regular.otf') format('otf'),
+		url('./Voyage/Voyage-Regular.ttf') format('ttf'),
+		url('./Voyage/Voyage-Regular.woff') format('woff'),
+		url('./Voyage/Voyage-Regular.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
 
- @font-face {
-    font-family: 'Lighters';
-  src: local('lighters lighters regular 400'), local('lighters-lighters-regular-400'),
-      url('./Lighters/lighters-lighters-regular-400.otf') format('otf');
-      src: local('lighters lighters regular 400'), local('lighters-lighters-regular-400'),
-      url('./Lighters/lighters-lighters-regular-400.ttf') format('ttf');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
- }
+@font-face {
+	font-family: 'Lighters';
+	src: local('lighters lighters regular 400'),
+		local('lighters-lighters-regular-400'),
+		url('./Lighters/lighters-lighters-regular-400.otf') format('otf');
+	src: local('lighters lighters regular 400'),
+		local('lighters-lighters-regular-400'),
+		url('./Lighters/lighters-lighters-regular-400.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
