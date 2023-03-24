@@ -2,5 +2,5 @@
 .vscode
 .env
 config.js
-/node_modules
+node_modules/
 *.md
