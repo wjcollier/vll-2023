@@ -601,9 +601,12 @@ body.nav-active {
 }
 
 span.title.vll {
-	font-family: var(--fontFamily-voyage);
+	font-family: var(--fontFamily-voyage), sans-serif;
 }
 
+h1.title {
+	font-family: var(--fontFamily-voyage), sans-serif;;
+}
 /*-----------------------------------*\
   #HERO - CHATBOT
 \*-----------------------------------*/
