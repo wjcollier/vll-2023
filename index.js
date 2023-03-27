@@ -32,11 +32,11 @@ async function handlePost(request) {
 			'The provided Turnstile token was not valid! \n' + JSON.stringify(outcome)
 		)
 	}
-	// The Turnstile token was successfuly validated. Proceed with your application logic.
+	// The Turnstile token was successfully validated. Proceed with your application logic.
 	// Validate login, redirect user, etc.
 	// For this demo, we just echo the "/siteverify" response:
 	return new Response(
-		'Turnstile token successfuly validated. \n' + JSON.stringify(outcome)
+		'Turnstile token successfully validated. \n' + JSON.stringify(outcome)
 	)
 }
 
@@ -49,13 +49,24 @@ export default {
 		const url = new URL(request.url)
 
 		if (url.pathname === '/explicit') {
-      const body = await explicitRenderHtml();
-      return new Response(body, {
-        headers: { 'Content-Type': 'text/html',
-      },
-      });
-    }
+			const body = await explicitRenderHtml()
+			return new Response(body, {
+				headers: { 'Content-Type': 'text/html' },
+			})
+		}
 
-		 return new Response('Not Found', { status: 404 });
-}
+		// Check if the request is for the root domain and return the HTML with the Turnstile widget.
+		if (url.pathname === '/') {
+			const html = await explicitRenderHtml()
+			const response = new Response(html, {
+				headers: { 'Content-Type': 'text/html' },
+			})
+			response.headers.set('Cache-Control', 'no-store')
+			response.headers.set('Pragma', 'no-cache')
+			return response
+		}
+
+		// The request is for a static asset, so just pass it through to the origin.
+		return fetch(request)
+	}
 }

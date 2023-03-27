@@ -7,8 +7,13 @@
 
 		<!-- primary meta tags -->
 		<title>Violent Light Labs</title>
-		<meta name="title" content="Violent Light Labs - agency website" />
-		<meta name="description" content="Violent Light Labs - template" />
+		<meta
+			name="title"
+			content="Violent Light Labs - freelance web development" />
+		<meta
+			name="description"
+			content="Violent Light Labs - freelance web and app development" />
+		<meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
 
 		<!-- favicon from realfavicongenerator.net-->
 		<link
@@ -47,13 +52,6 @@
 
 		<link rel="stylesheet" href="./assets/css/styles.css" />
 
-		<!-- cloudflare turnstile  -->
-
-		<script
-			src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_turnstileCb"
-			async
-			defer></script>
-
 		<!-- preload images  -->
 
 		<link rel="preload" as="image" href="./assets/images/hero-banner-1.png" />
@@ -84,7 +82,10 @@
 									x="50%"
 									y="90%"
 									text-anchor="middle"
-									font-family="Voyage", Helvetica, sans-serif
+									font-family="Voyage"
+									,
+									Helvetica,
+									sans-serif
 									font-size="35"
 									fill="white">
 									WJC.
@@ -105,7 +106,10 @@
 											x="50%"
 											y="50%"
 											text-anchor="middle"
-											font-family="Voyage", Helvetica, sans-serif
+											font-family="Voyage"
+											,
+											Helvetica,
+											sans-serif
 											font-size="35"
 											fill="white">
 											WJC.
@@ -959,25 +963,23 @@
 				<!-- cloudfare  link -->
 				<script src="./assets/js/server.js"></script>
 
-				<script>
-					// This function is called when the Turnstile script is loaded and ready to be used.
-					// The function name matches the "onload=..." parameter.
-					// function _turnstileCb() {
-					// 	console.debug('_turnstileCb called')
+				<!-- load cloudflare turnstile  script asynchronously -->
 
-					// 	turnstile.render('#myWidget', {
-					// 		sitekey: '0x4AAAAAAADdMXwxrz3z09SD',
-					// 	})
-					// }
+				<script
+					src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_turnstileCb"
+					async
+					defer></script>
+
+				<!-- Define the _turnstileCb function -->
+				<script>
 					function _turnstileCb() {
-				// Wait for the Turnstile script to load before rendering the widget
-				document.querySelector('#contact-form button[type="submit"]').disabled = true // disable the submit button until the widget is ready
-				document.querySelector('#myWidget').addEventListener('turnstile:ready', () => {
-					console.debug('Turnstile ready event received')
-					turnstile.render('#myWidget', { sitekey: '0x4AAAAAAADdMXwxrz3z09SD' })
-					document.querySelector('#contact-form button[type="submit"]').disabled = false // re-enable the submit button
-				})
-			}
+						console.debug('_turnstileCb called')
+						
+						// Render the Turnstile widget
+						turnstile.render('#myWidget', {
+							sitekey: '0x4AAAAAAADdMXwxrz3z09SD',
+						})
+					}
 				</script>
 
 				<!-- ion-icon link -->
