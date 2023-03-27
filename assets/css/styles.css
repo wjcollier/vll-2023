@@ -602,11 +602,11 @@ body.nav-active {
 }
 
 span.title.vll {
-	font-family: var(--fontFamily-fira),'Voyage', sans-serif;
+	font-family: 'FiraCode NF','Voyage', sans-serif;
 }
 
 h1.title {
-	font-family: var(--fontFamily-fira),'Voyage', sans-serif;;
+	font-family: 'FiraCode NF', 'Voyage', sans-serif;
 }
 /*-----------------------------------*\
   #HERO - CHATBOT
