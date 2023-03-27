@@ -962,13 +962,22 @@
 				<script>
 					// This function is called when the Turnstile script is loaded and ready to be used.
 					// The function name matches the "onload=..." parameter.
-					function _turnstileCb() {
-						console.debug('_turnstileCb called')
+					// function _turnstileCb() {
+					// 	console.debug('_turnstileCb called')
 
-						turnstile.render('#myWidget', {
-							sitekey: '0x4AAAAAAADdMXwxrz3z09SD',
-						})
-					}
+					// 	turnstile.render('#myWidget', {
+					// 		sitekey: '0x4AAAAAAADdMXwxrz3z09SD',
+					// 	})
+					// }
+					function _turnstileCb() {
+				// Wait for the Turnstile script to load before rendering the widget
+				document.querySelector('#contact-form button[type="submit"]').disabled = true // disable the submit button until the widget is ready
+				document.querySelector('#myWidget').addEventListener('turnstile:ready', () => {
+					console.debug('Turnstile ready event received')
+					turnstile.render('#myWidget', { sitekey: '0x4AAAAAAADdMXwxrz3z09SD' })
+					document.querySelector('#contact-form button[type="submit"]').disabled = false // re-enable the submit button
+				})
+			}
 				</script>
 
 				<!-- ion-icon link -->
